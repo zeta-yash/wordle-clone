@@ -1,0 +1,45 @@
+
+h1{text-align: center;}
+
+.panel div {
+    border-radius: 8px;
+    text-align: center;
+    max-width: 20em;
+    background-color: plum;
+    display: flex;
+    gap: 2px;
+    padding-block: 1px;
+}
+span {
+    background-color:black;
+    height: 60px;
+    width: 60px;
+    text-align: center;    
+    border: solid 1px black;
+    border-radius: 8px;
+}
+
+p{  color:white;
+    font-size: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    /* text-align: center; */
+    font-weight: bolder;
+}
+
+.enter{
+    display: flex;
+    background-color: plum;
+    margin: 50px;
+    padding: 20px;
+    border-radius: 8px;
+    gap: 5px;
+}
+
+input{
+    border-radius: 8px;
+    height: auto;
+    border: none;
+    width: 100px;
+    text-align: center;
+}
+
