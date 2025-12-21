@@ -27,7 +27,7 @@ function boxColor(line1) {
 }
 
 
-function gobtn() {
+function execute() {
     
     let text = inputtxt.value.toUpperCase();
     const line = document.getElementById(`line${total_elements + 1}`);
@@ -72,6 +72,6 @@ inputtxt.addEventListener("keydown", function(event) {
   if (event.key === "Enter") {
     // Call your custom function or trigger a button click
     // document.getElementById("submitbtn").click();
-    gobtn();
+    execute();
   }
 });
