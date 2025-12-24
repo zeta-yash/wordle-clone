@@ -10,10 +10,6 @@
 <body>
     <h1>WORDLE</h1>
 
-    <div class="hint-panel">
-        <h3 class="hint-head">HINT</h3>
-        <p class="hint-content">It has a planet.</p>
-    </div>
     <div class="panel">
         <div id="line1">
             <span id="box1">
@@ -118,6 +114,13 @@
             </span>
         </div>
     </div>
+    
+    <div class="hint-panel">
+        <h3 class="hint-head">HINT</h3>
+        <button class="show-hint" onclick=showhint()>Show</button>
+        <hr>
+        <p class="hint-content">It has a planet.</p>
+    </div>
 
     <div class="enter">
         <h3>Enter:</h3>
@@ -125,7 +128,7 @@
         <!-- <button id="submitbtn" onclick=gobtn()>GO</button> -->
     </div>
 
-
+    
 
 
 </body>

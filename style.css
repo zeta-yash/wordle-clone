@@ -1,21 +1,31 @@
-body{
+:root {
+    --primary-color: #004643a4;
+    /* Global variable */
+}
+
+body {
     background-color: #fafafa;
 }
+
 h1 {
-    
+
     text-align: center;
     font-family: sans-serif;
 }
 
-.panel{
-    /* background-color: #004643; */
+.panel {
+    background-color: var(--primary-color);
     width: 20em;
     margin: auto;
     padding: 10px;
     border-radius: 8px;
     backdrop-filter: blur(8px);
-    filter: drop-shadow(8px 6px 8px);
+    filter: drop-shadow(0px 0px 8px);
+    anchor-name: --panel;
+
+    
 }
+
 .panel div {
     border-radius: 8px;
     text-align: center;
@@ -24,6 +34,7 @@ h1 {
     gap: 2px;
     padding-block: 2px;
     
+
 }
 
 span {
@@ -31,8 +42,9 @@ span {
     height: 60px;
     width: 60px;
     text-align: center;
-    /* border: solid 1px black; */
+    border: solid 1px black;
     border-radius: 8px;
+    
 }
 
 span>p {
@@ -69,14 +81,69 @@ input {
 
 /* .hint-panel {
     display: flex;
-    margin: 0 60vh;
-    width: auto;
-    float: left;
+    margin: 0 60vw;
+    width: 35vw;
+    height: 30vh;
     position: absolute;
 }
 
-.hint-content {
-    align-content: center;
-    padding: 0 20px;
-
 } */
+
+.hint-panel {
+    position: absolute;
+    position-anchor: panel;
+    /* position-area: left; */
+    right:anchor(left);
+    font-family: 'Times New Roman', Times, serif;
+    border: solid 2px #004643a4;
+    border-radius: 8px;
+    border-style: dashed;
+    padding: 10px;
+    width: 200px;
+    background-color: var(--primary-color);
+    backdrop-filter: blur(8px);
+}
+
+/* .hint-head::after {
+    content: "";
+    background-color: blue;
+    height: 20px;
+    width: 40px;
+    display: block;
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    border-radius: 50px;
+} */
+
+.show-hint {
+    position: absolute;
+    top: 8px;
+    right: 15px;
+    border-radius: 4px;
+    border: none;
+    height: 25px;
+
+}
+
+.show-hint:hover {
+    cursor: pointer;
+    box-shadow: 0px 1px 2px;
+    transition: box-shadow 0.2s;
+}
+
+.show-hint:active {
+    transform: translateY(1px);
+}
+
+
+.hint-head {
+    margin: 0px;
+    padding: 0 auto;
+    color: #004643;
+}
+
+
+.hint-content {
+    display: block;
+}
