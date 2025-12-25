@@ -8,12 +8,14 @@
 </head>
 
 <body>
-    <h1>WORDLE</h1>
+    <header>
+        <h1>WORDLE</h1>
+    </header>
 
     <div class="panel">
         <div class="hint-panel">
             <h3 class="hint-head">HINT</h3>
-            <button class="show-hint" onclick=showhint()>Show</button>
+            <button class="show-hint" onclick=showhint()>&#9660</button>
             <hr>
             <p class="hint-content">It has a planet.</p>
         </div>
@@ -124,14 +126,16 @@
 
 
     <div class="enter">
-        <h3>Enter:</h3>
+        <!-- <h3>Enter:</h3> -->
         <input id="input" type="text" placeholder="Enter Here" maxlength="5" style="text-transform: uppercase;">
         <!-- <button id="submitbtn" onclick=gobtn()>GO</button> -->
     </div>
 
 
 
-
+    <footer>
+        <p>&copy; 2025 My Website</p>
+    </footer>
 </body>
 <script src="script.js"></script>
 

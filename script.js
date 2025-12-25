@@ -16,9 +16,9 @@ function boxColor(line1) {
         const letter = letters1[j].textContent;
 
         if (letter === mainword[j]) {
-            boxes[j].style.backgroundColor = "green";
+            boxes[j].style.backgroundColor = "#028100ff";
         } else if (mainword.includes(letter)) {
-            boxes[j].style.backgroundColor = "gold";
+            boxes[j].style.backgroundColor = "orange";
         } else {
             boxes[j].style.backgroundColor = "gray";
         }
@@ -66,7 +66,6 @@ function execute() {
 }
 
 
-
 // Execute a function when the user presses a key on the keyboard
 inputtxt.addEventListener("keydown", function (event) {
     // If the user presses the "Enter" key on the keyboard
@@ -86,7 +85,8 @@ function showhint() {
     });
 
     hintPanel.style.transition = "height 0.3s ease";
-    hintPanel.style.height = "100px";
+    hintPanel.style.height = "5em";
 
     hintused = 1;
 }
+
