@@ -11,6 +11,12 @@
     <h1>WORDLE</h1>
 
     <div class="panel">
+        <div class="hint-panel">
+            <h3 class="hint-head">HINT</h3>
+            <button class="show-hint" onclick=showhint()>Show</button>
+            <hr>
+            <p class="hint-content">It has a planet.</p>
+        </div>
         <div id="line1">
             <span id="box1">
                 <p id="letter1"></p>
@@ -114,13 +120,8 @@
             </span>
         </div>
     </div>
-    
-    <div class="hint-panel">
-        <h3 class="hint-head">HINT</h3>
-        <button class="show-hint" onclick=showhint()>Show</button>
-        <hr>
-        <p class="hint-content">It has a planet.</p>
-    </div>
+
+
 
     <div class="enter">
         <h3>Enter:</h3>
@@ -128,10 +129,14 @@
         <!-- <button id="submitbtn" onclick=gobtn()>GO</button> -->
     </div>
 
-    
+
 
 
 </body>
 <script src="script.js"></script>
 
 </html>
+
+
+<!-- add json file for words
+hints : the 4 th letter is not r,e,d,g etc. -->

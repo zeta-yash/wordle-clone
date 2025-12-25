@@ -22,18 +22,19 @@ h1 {
     backdrop-filter: blur(8px);
     filter: drop-shadow(0px 0px 8px);
     anchor-name: --panel;
+    display: grid;
+    justify-content: center;
 
-    
 }
 
-.panel div {
+.panel > div {
     border-radius: 8px;
     text-align: center;
     max-width: 20em;
     display: flex;
     gap: 2px;
     padding-block: 2px;
-    
+
 
 }
 
@@ -44,7 +45,7 @@ span {
     text-align: center;
     border: solid 1px black;
     border-radius: 8px;
-    
+
 }
 
 span>p {
@@ -89,19 +90,24 @@ input {
 
 } */
 
-.hint-panel {
+div > .hint-panel {
+    display: block;
     position: absolute;
-    position-anchor: panel;
-    /* position-area: left; */
-    right:anchor(left);
+    /* position-anchor: panel;
+    position-area: left;
+    right:anchor(left); */
     font-family: 'Times New Roman', Times, serif;
     border: solid 2px #004643a4;
     border-radius: 8px;
     border-style: dashed;
     padding: 10px;
+    height: 20px;
     width: 200px;
     background-color: var(--primary-color);
     backdrop-filter: blur(8px);
+    left:-15em;
+
+
 }
 
 /* .hint-head::after {
@@ -140,10 +146,11 @@ input {
 .hint-head {
     margin: 0px;
     padding: 0 auto;
-    color: #004643;
+    color: #001817;
 }
 
 
-.hint-content {
-    display: block;
+.hint-content , hr {
+    color: whitesmoke;
+    display: none;
 }

@@ -2,6 +2,7 @@ let mainword = "SPACE";
 let entered_values = [];
 let total_elements = entered_values.length
 let inputtxt = document.querySelectorAll("input")[0];
+let hintused = 0;
 
 // this loop gets the values from the elements
 
@@ -75,3 +76,17 @@ inputtxt.addEventListener("keydown", function (event) {
         execute();
     }
 });
+
+function showhint() {
+    const hintPanel = document.querySelector(".hint-panel");
+    const hintElements = document.querySelectorAll(".hint-content, hr");
+
+    hintElements.forEach(el => {
+        el.style.display = "block";
+    });
+
+    hintPanel.style.transition = "height 0.3s ease";
+    hintPanel.style.height = "100px";
+
+    hintused = 1;
+}
