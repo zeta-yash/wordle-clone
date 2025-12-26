@@ -88,8 +88,13 @@ function showhint() {
     const hintPanel = document.querySelector(".hint-panel");
     const hintElements = document.querySelectorAll(".hint-content, hr");
 
+    
+
     hintElements.forEach(el => {
-        el.style.display = "block";
+        setTimeout(() => {
+            el.style.display = "block";
+        }, 100);
+        
     });
 
     hintPanel.style.transition = "height 0.3s ease";

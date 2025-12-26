@@ -1,45 +1,57 @@
 @import url('https://fonts.googleapis.com/css2?family=Changa+One:ital@0;1&family=Outfit:wght@100..900&display=swap');
+
 :root {
     --primary-color: #004643a4;
     --complement-color: #fafafa;
     /* Global variable */
 }
 
+html {
+    background-image: url(wordle-bg.webp);
+    background-size: cover;
+    background-repeat: none;
+    /* background-position: center; */
+}
+
 * {
     font-family: sans-serif;
 }
-header{
+
+header {
     margin-bottom: 25px;
 }
 
 body {
-    background-image: linear-gradient(45deg, rgb(166, 255, 240), rgb(208, 255, 231));
+    /* background-image: linear-gradient(45deg, rgb(166, 255, 240), rgb(208, 255, 231)); */
 }
 
 h1 {
     /* Wordle */
-    color: #004643;
-    font-size: 5rem;
-    margin-bottom: 0px;
+    color: lemonchiffon;
+    text-shadow: 0 0px 10px black;
+    font-size: 7rem;
+    margin-block: 0px;
     text-align: center;
     font-family: "Changa One", sans-serif;
 }
-.subhead-container{
+
+.subhead-container {
     display: flex;
-    width: 300px;
+    width: 420px;
     margin: auto;
     margin-top: -10px;
-    justify-content:right;
+    justify-content: right;
 }
+
 .subHead {
     /* clone */
     background-color: #004643;
     border-radius: 4px;
-    padding: 2px;
-    color: white;
+    padding-inline: 5px;
+    color: whitesmoke;
     font-family: "Outfit", sans-serif;
-    font-weight:bold;
-    font-size: 1.3em;
+    font-weight: bold;
+    font-size: 1.5em;
     margin: 0;
 }
 
@@ -47,7 +59,7 @@ h1 {
     background-color: var(--primary-color);
     width: 20em;
     margin: auto;
-    padding: 10px;
+    padding-block: 5px;
     border-radius: 8px;
     backdrop-filter: blur(8px);
     filter: drop-shadow(0px 0px 8px);
@@ -112,15 +124,6 @@ input {
     box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.342);
 }
 
-/* .hint-panel {
-    display: flex;
-    margin: 0 60vw;
-    width: 35vw;
-    height: 30vh;
-    position: absolute;
-}
-
-} */
 
 div>.hint-panel {
     display: block;
@@ -129,30 +132,18 @@ div>.hint-panel {
     position-area: left;
     right:anchor(left); */
     font-family: 'Times New Roman', Times, serif;
-    border: solid 2px #004643a4;
+    border: solid 2px #0046436e;
     border-radius: 8px;
     border-style: dashed;
     padding: 10px;
     height: 20px;
     width: 200px;
     background-color: var(--primary-color);
-    backdrop-filter: blur(8px);
+    backdrop-filter: blur(5px);
     left: -15em;
 
 
 }
-
-/* .hint-head::after {
-    content: "";
-    background-color: blue;
-    height: 20px;
-    width: 40px;
-    display: block;
-    position: absolute;
-    top: 12px;
-    right: 15px;
-    border-radius: 50px;
-} */
 
 .show-hint {
     position: absolute;
@@ -196,17 +187,18 @@ hr {
     font-family: "Outfit", sans-serif;
 }
 
-hr{
+hr {
     /* border:1px dashed rgb(202, 202, 202); */
     border: none;
     background-color: #004e4c;
     height: 2px;
 }
 
-footer{
+footer {
     display: flex;
     justify-content: center;
 }
+
 
 @media (max-width: 480px) {
     div>.hint-panel {
@@ -232,5 +224,33 @@ footer{
         width: auto;
         margin: 20px;
 
+    }
+
+    h1 {
+        /* Wordle */
+        font-size: 5rem;
+        margin-bottom: 0px;
+        text-align: center;
+        font-family: "Changa One", sans-serif;
+    }
+
+    .subhead-container {
+        display: flex;
+        width: 300px;
+        margin: auto;
+        margin-top: -10px;
+        justify-content: right;
+    }
+
+    .subHead {
+        /* clone */
+        background-color: #004643;
+        border-radius: 4px;
+        padding: 2px;
+        color: white;
+        font-family: "Outfit", sans-serif;
+        font-weight: bold;
+        font-size: 1.3em;
+        margin: 0;
     }
 }
