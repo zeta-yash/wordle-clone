@@ -1,6 +1,7 @@
 let mainword = "SPACE";
-let entered_values = [];
-let total_elements = entered_values.length
+let entered_values = []; //no of lines entered
+let total_elements = entered_values.length;
+let guessed_places = [0, 0, 0, 0, 0]; //tells the which position is green now
 let inputtxt = document.querySelectorAll("input")[0];
 let hintused = 0;
 
@@ -9,8 +10,8 @@ let hintused = 0;
 function boxColor(line1) {
     if (!line1) return;
 
-    const letters1 = line1.querySelectorAll("p");
-    const boxes = line1.querySelectorAll("span");
+    const letters1 = line1.querySelectorAll("p"); //letter itself
+    const boxes = line1.querySelectorAll("span"); //box of the letter
 
     for (let j = 0; j < letters1.length; j++) {
         const letter = letters1[j].textContent;
@@ -28,13 +29,13 @@ function boxColor(line1) {
 }
 
 
-function execute() {
+function execute() { //this code runs for 1 line per execution
 
     let text = inputtxt.value.toUpperCase();
     const line = document.getElementById(`line${total_elements + 1}`);
     if (!line) return;
 
-    const letters = line.querySelectorAll("p");
+    const letters = line.querySelectorAll("p"); //act as line{num} > p
 
     if (text.length < 5) {
         inputtxt.value = "";
@@ -49,7 +50,7 @@ function execute() {
     }
 
 
-    boxColor(line);
+    boxColor(line); //boxColoring command runs on the line which is last executed.
     entered_values.push(text);
     total_elements++;
 
@@ -57,10 +58,16 @@ function execute() {
 
 
     if (text === mainword) {
-        alert(`Congratulations!! You guessed the word in ${total_elements} attempt(s)`);
+        setTimeout(() => {
+            alert(`Congratulations!! You guessed the word in ${total_elements} attempt(s)`);
+        }, 500);
+
     }
     else if (total_elements === 6 && text != mainword) {
-        alert(`You Lose. The correct word is ${mainword}`)
+        setTimeout(() => {
+            alert(`You Lose. The correct word is ${mainword}`)
+        }, 500);
+
     }
 
 }
@@ -75,6 +82,7 @@ inputtxt.addEventListener("keydown", function (event) {
         execute();
     }
 });
+
 
 function showhint() {
     const hintPanel = document.querySelector(".hint-panel");
