@@ -50,7 +50,7 @@ input:checked+.slider::before {
 
 @media (prefers-color-scheme:dark) {
     body {
-        color: white;
-        background-color: black;
+        /* color: white; */
+        /* background-color: black; */
     }
 }
