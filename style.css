@@ -1,16 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Changa+One:ital@0;1&family=Outfit:wght@100..900&display=swap');
 
 :root {
-    --primary-color: #004643a4;
+    --primary-color: #0046435b;
     --complement-color: #fafafa;
+    --bg-image:url(wordle-bg.webp);
+    --title-color:white;
     /* Global variable */
 }
 
 html {
-    background-image: url(wordle-bg.webp);
+    background-image: var(--bg-image);
     background-size: cover;
     background-repeat: none;
-    /* background-position: center; */
+    background-position: center;
 }
 
 * {
@@ -27,7 +29,7 @@ header {
 
 h1 {
     /* Wordle */
-    color: lemonchiffon;
+    color: var(--title-color);
     text-shadow: 0 0px 10px black;
     font-size: 7rem;
     margin-block: 0px;
@@ -112,7 +114,7 @@ span>p {
     justify-content: center;
 }
 
-input {
+.enter>input {
     border-radius: 8px;
     height: auto;
     border: none;
@@ -201,6 +203,7 @@ footer {
 
 
 @media (max-width: 480px) {
+
     div>.hint-panel {
         display: block;
         position: sticky;
@@ -222,13 +225,15 @@ footer {
     .enter,
     .input {
         width: auto;
-        margin: 20px;
+        margin: 0 20px;
+        margin-top: 1vh;
 
     }
 
     h1 {
         /* Wordle */
         font-size: 5rem;
+        padding-top: 30px;
         margin-bottom: 0px;
         text-align: center;
         font-family: "Changa One", sans-serif;

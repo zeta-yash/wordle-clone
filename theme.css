@@ -48,9 +48,29 @@ input:checked+.slider::before {
     transform: translateX(24px);
 }
 
-@media (prefers-color-scheme:dark) {
-    body {
-        /* color: white; */
-        /* background-color: black; */
+.theme-tag{
+    position: absolute;
+    right: 60px;
+    font-size: smaller;
+    font-family: "Outfit";
+}
+
+@media (prefers-color-scheme:light) {
+    :root {
+    --primary-color: rgba(0, 145, 120, 0.349);
+    --complement-color: #fafafa;
+    /* Global variable */
+}
+    html {
+        background-image: url(wordle-bg-light-hd.webp);
+        background-size: cover;
+        background-repeat: none;
+    }
+
+    h1 {
+    /* Wordle */
+    color: #004643;
+    text-shadow: none;    
     }
 }
+

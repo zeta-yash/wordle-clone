@@ -2,9 +2,10 @@ let mainword = "SPACE";
 let entered_values = []; //no of lines entered
 let total_elements = entered_values.length;
 let guessed_places = [0, 0, 0, 0, 0]; //tells the which position is green now
-let inputtxt = document.querySelectorAll("input")[0];
-let hintused = 0;
+let inputtxt = document.querySelectorAll(".input")[0];
 
+let hintused = 0;
+let toggle = 0;
 // this loop gets the values from the elements
 
 function boxColor(line1) {
@@ -12,6 +13,7 @@ function boxColor(line1) {
 
     const letters1 = line1.querySelectorAll("p"); //letter itself
     const boxes = line1.querySelectorAll("span"); //box of the letter
+
 
     for (let j = 0; j < letters1.length; j++) {
         const letter = letters1[j].textContent;
@@ -47,6 +49,7 @@ function execute() { //this code runs for 1 line per execution
 
     for (let i = 0; i < letters.length; i++) {
         letters[i].textContent = text[i] || "";
+        console.log(i,text[i])
     }
 
 
@@ -79,7 +82,9 @@ inputtxt.addEventListener("keydown", function (event) {
     if (event.key === "Enter") {
         // Call your custom function or trigger a button click
         // document.getElementById("submitbtn").click();
+        
         execute();
+        console.log("Enter")
     }
 });
 
@@ -103,4 +108,34 @@ function showhint() {
     hintused = 1;
 }
 
+function toggleTheme(el) {
+  if (el.checked) { //Light Mode
+    toggle = 1;
+    document.documentElement.style.setProperty(
+      "--primary-color",
+      "#002f2a80"
+    );
+    document.documentElement.style.setProperty(
+      "--bg-image",
+      "url(wordle-bg-light-hd.webp)"
+    );
+    document.documentElement.style.setProperty(
+      "--title-color",
+      "gold"
+    );
+  } else {
+    document.documentElement.style.setProperty(
+      "--primary-color",
+      "rgba(0, 145, 120, 0.349)"
+    );
+    document.documentElement.style.setProperty(
+      "--bg-image",
+      "url(wordle-bg.webp)"
+    );
+    document.documentElement.style.setProperty(
+      "--title-color",
+      "lemonchiffon"
+    );
+  }
+}
 

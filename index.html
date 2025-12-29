@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" media="(prefers-color-scheme: light)">
     <title>Guess it right</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="theme.css">
@@ -11,9 +12,11 @@
 <body>
     <header>
         <label class="toggle">
-            <input type="checkbox">
+            <div class="theme-tag">Switch Theme</div>
+            <input type="checkbox" onchange="toggleTheme(this)">
             <span class="slider"></span>
         </label>
+
 
 
         <h1>WORDLE.</h1>
@@ -137,7 +140,7 @@
 
     <div class="enter">
         <!-- <h3>Enter:</h3> -->
-        <input id="input" type="text" placeholder="Enter Here" maxlength="5" style="text-transform: uppercase;">
+        <input class="input" type="text" placeholder="Enter Here" maxlength="5" style="text-transform: uppercase;">
         <!-- <button id="submitbtn" onclick=gobtn()>GO</button> -->
     </div>
 
@@ -148,6 +151,7 @@
     </footer>
 </body>
 <script src="script.js"></script>
+
 <!-- <script type="module" src="https://unpkg.com/@splinetool/viewer@1.12.28/build/spline-viewer.js"></script>
 <spline-viewer url="https://prod.spline.design/jTPNMCRF9rd4dBFr/scene.splinecode"></spline-viewer> -->
 
