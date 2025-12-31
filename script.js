@@ -29,23 +29,19 @@ initGame();
 let entered_values = []; //no of lines entered
 let total_elements = entered_values.length;
 //==============================================================
-let guessed_places = new Map([ //tells the which position is green now
-  [1, 0],
-  [2, 0],
-  [3, 0],
-  [4, 0],
-  [5, 0]
-]);
-let left_positions = [1,2,3,4,5]
-let position_update = () => {
-
-  guessed_places.forEach((value, key) => {
-    if (value === 0) {
-      left_positions.push(key);
+let left_positions = [1, 2, 3, 4, 5];
+let left_positions_new = [1,2,3,4,5];
+function updateLeftPosition() {
+  left_positions_new = [];
+  for (let i = 0; i < 5; i++) {
+    
+    if (left_positions[i] === i + 1) {
+      
+      left_positions_new.push(i + 1);
     }
-  });
-  return left_positions;
+  }
 };
+let posit_guessed = 0;
 //=================================================================
 
 
@@ -56,12 +52,22 @@ let toggle = 0;
 // this loop gets the values from the elements
 
 
-
-function hintMatter(){
-  ////HINT TEXT FORMATING//////
 let hint_content = document.querySelector(".hint-content");
-let random_sample_leftPs = left_positions[Math.floor(Math.random() * left_positions.length)];
-hint_content.innerHTML = `Letter ${random_sample_leftPs} is ${mainword[random_sample_leftPs-1]} `;
+// if 
+let random_sample_leftPs = left_positions_new[Math.floor(Math.random() * left_positions_new.length)];
+function hintMatter() {
+  
+  ////HINT TEXT FORMATING//////
+
+  if (1<total_elements < 6) {
+    hint_content.innerHTML = `Letter ${random_sample_leftPs} is ${mainword[random_sample_leftPs - 1]} `;
+    console.log(`Letter ${random_sample_leftPs} is ${mainword[random_sample_leftPs - 1]} `);
+  }
+  else if (total_elements === 6) {
+    hint_content.innerHTML = "You Won...!!! &#127942";
+  }
+
+
 }
 
 
@@ -78,88 +84,94 @@ function boxColor(line1) {
 
     if (letter === mainword[j]) {
       boxes[j].style.backgroundColor = "#028100ff";
-      guessed_places.set(j + 1, 1); //set map value 1 for key j-th in guessed palces
-      console.log(guessed_places)
-      // guessed_places.forEach((value, key) => {
-      //   if (value === 0) {
-      //     left_positions.push(key);
-      //   }})
 
-
-      } else if (mainword.includes(letter)) {
-        boxes[j].style.backgroundColor = "orange";
-      } else {
-        boxes[j].style.backgroundColor = "gray";
-      }
-
-
+    } else if (mainword.includes(letter)) {
+      boxes[j].style.backgroundColor = "orange";
+    } else {
+      boxes[j].style.backgroundColor = "gray";
     }
+
 
   }
 
-
-  function execute() { //this code runs for 1 line per execution
-
-    let text = inputtxt.value.toUpperCase();
-    const line = document.getElementById(`line${total_elements + 1}`);
-    if (!line) return;
-
-    const letters = line.querySelectorAll("p"); //act as line{num} > p
-
-    if (text.length < 5) {
-      inputtxt.value = "";
-      alert("Only 5 letter words are accepted.")
-      return;
-    };
+}
 
 
+function execute() { //this code runs for 1 line per execution
 
-    for (let i = 0; i < letters.length; i++) {
-      letters[i].textContent = text[i] || "";
-      // console.log(i, text[i])
-    }
+  let text = inputtxt.value.toUpperCase();
+  const line = document.getElementById(`line${total_elements + 1}`);
+  if (!line) return;
 
+  const letters = line.querySelectorAll("p"); //act as line{num} > p
 
-    boxColor(line); //boxColoring command runs on the line which is last executed.
-    entered_values.push(text);
-    total_elements++;
-
+  if (text.length < 5) {
     inputtxt.value = "";
-
-
-    if (text === mainword) {
-      setTimeout(() => {
-        alert(`Congratulations!! You guessed the word in ${total_elements} attempt(s)`);
-      }, 500);
-
-    }
-    else if (total_elements === 6 && text != mainword) {
-      setTimeout(() => {
-        alert(`You Lose. The correct word is ${mainword}`)
-      }, 500);
+    alert("Only 5 letter words are accepted.")
+    return;
+  };
+  for (let i = 0; i < 5; i++) {
+    if (text[i] === mainword[i]) {
+      let deleted = delete left_positions[i];
+      console.log(text[i], " is at right position, so the", deleted, " is deleted and the new left P list is ", left_positions, "leftUpdate: ", left_positions_new)
 
     }
+  }
+  updateLeftPosition();
+  console.log(text);
 
 
+  for (let i = 0; i < letters.length; i++) {
+    letters[i].textContent = text[i] || "";
+    // console.log(i, text[i])
+  }
+
+
+  boxColor(line); //boxColoring command runs on the line which is last executed.
+  entered_values.push(text);
+  total_elements++;
+
+  inputtxt.value = "";
+
+
+  if (text === mainword) {
+    setTimeout(() => {
+      alert(`Congratulations!! You guessed the word in ${total_elements} attempt(s)`);
+    }, 500);
+
+  }
+  else if (total_elements === 6 && text != mainword) {
+    setTimeout(() => {
+      alert(`You Lose. The correct word is ${mainword}`)
+    }, 500);
 
   }
 
 
-  // Execute a function when the user presses a key on the keyboard
-  inputtxt.addEventListener("keydown", function (event) {
-    // If the user presses the "Enter" key on the keyboard
-    if (event.key === "Enter") {
-      // Call your custom function or trigger a button click
-      // document.getElementById("submitbtn").click();
 
-      execute();
-      // console.log("Enter")
-    }
-  });
+}
 
 
-  function showhint() {
-    
+// Execute a function when the user presses a key on the keyboard
+inputtxt.addEventListener("keydown", function (event) {
+  // If the user presses the "Enter" key on the keyboard
+  if (event.key === "Enter") {
+    // Call your custom function or trigger a button click
+    // document.getElementById("submitbtn").click();
+
+    execute();
+    // console.log("Enter")
+  }
+});
+
+
+function showhint() {
+  updateLeftPosition()
+  if (total_elements == 0) {
+    alert("Try atleast once, to avail hint.")
+  }
+
+  else {
     const hintPanel = document.querySelector(".hint-panel");
     const hintElements = document.querySelectorAll(".hint-content, hr");
 
@@ -176,38 +188,39 @@ function boxColor(line1) {
     hintPanel.style.height = "5em";
 
     hintused = 1;
-  }
+  };
+}
 
-  function toggleTheme(el) {
-    if (el.checked) { //Light Mode
-      toggle = 1;
-      document.documentElement.style.setProperty(
-        "--primary-color",
-        "#002f2a80"
-      );
-      document.documentElement.style.setProperty(
-        "--bg-image",
-        "url(wordle-bg-light-hd.webp)"
-      );
-      document.documentElement.style.setProperty(
-        "--title-color",
-        "gold"
-      );
-    } else {
-      document.documentElement.style.setProperty(
-        "--primary-color",
-        "rgba(0, 145, 120, 0.349)"
-      );
-      document.documentElement.style.setProperty(
-        "--bg-image",
-        "url(wordle-bg.webp)"
-      );
-      document.documentElement.style.setProperty(
-        "--title-color",
-        "lemonchiffon"
-      );
-    }
+function toggleTheme(el) {
+  if (el.checked) { //Light Mode
+    toggle = 1;
+    document.documentElement.style.setProperty(
+      "--primary-color",
+      "#002f2a80"
+    );
+    document.documentElement.style.setProperty(
+      "--bg-image",
+      "url(wordle-bg-light-hd.webp)"
+    );
+    document.documentElement.style.setProperty(
+      "--title-color",
+      "gold"
+    );
+  } else {
+    document.documentElement.style.setProperty(
+      "--primary-color",
+      "rgba(0, 145, 120, 0.349)"
+    );
+    document.documentElement.style.setProperty(
+      "--bg-image",
+      "url(wordle-bg.webp)"
+    );
+    document.documentElement.style.setProperty(
+      "--title-color",
+      "lemonchiffon"
+    );
   }
+}
 
 
 
