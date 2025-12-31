@@ -18,10 +18,12 @@ ABOUT THE GAME
   JSON
 
 
-  What I learned?
+  What I learnt?
   ================
   Javascript DOM
   Event Handling
   Project Handling
+  JSON linking
+  Backend Handling
 
   It took me around 5.5 Hrs to built and make it functional from very scaratch.
