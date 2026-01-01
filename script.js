@@ -29,17 +29,7 @@ initGame();
 let entered_values = []; //no of lines entered
 let total_elements = entered_values.length;
 //==============================================================
-let left_positions = [1, 2, 3, 4, 5];
-let left_positions_new = [];
-function updateLeftPosition() {
-  for (let i = 0; i < 5; i++) {
-    
-    if (left_positions[i] === i+1) {
-      
-      left_positions_new.push(i + 1);
-    }
-  }
-};
+
 //=================================================================
 
 
@@ -53,20 +43,10 @@ let toggle = 0;
 function hintMatter() {
   
   ////HINT TEXT FORMATING//////
+  let hint_content = document.querySelector(".hint-content");
   
-  if (1<total_elements < 6) {
-    let hint_content = document.querySelector(".hint-content");
-    // if 
-    let random_sample_leftPs = left_positions_new[Math.floor(Math.random() * left_positions_new.length)];
-    hint_content.innerHTML = `Letter ${random_sample_leftPs} is ${mainword[random_sample_leftPs - 1]} `;
-
-    console.log(`Letter ${random_sample_leftPs} is ${mainword[random_sample_leftPs - 1]} `);
-    // for (let i=0;)
-  }
-  else if (total_elements === 6) {
-    hint_content.innerHTML = "You Won...!!! &#127942";
-  }
-
+  
+    
 
 }
 
@@ -117,7 +97,7 @@ function execute() { //this code runs for 1 line per execution
 
     }
   }
-  updateLeftPosition();
+  
   console.log(text);
 
 
@@ -166,7 +146,7 @@ inputtxt.addEventListener("keydown", function (event) {
 
 
 function showhint() {
-  updateLeftPosition()
+  
   hintMatter()
   if (total_elements == 0) {
     alert("Try atleast once, to avail hint.")
