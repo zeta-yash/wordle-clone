@@ -44,15 +44,16 @@ let toggle = 0;
 function hintMatter() {
 
   ////HINT TEXT FORMATING//////
-  if (total_elements != 0 && hintused==0) {
+  if (total_elements != 0 && hintused === 0) {
     for (let i = 0; i < (5); i++) {
       if (!greens.includes(i + 1)) {
         left.push(i + 1);
       };
     };
-    console.log(left)
-    let left_random = left[Math.ceil(Math.random() * left.length)]
-    console.log(left_random)
+    let random_num = Math.ceil(Math.random()*left.length);
+    let left_random = left[random_num-1];
+    console.log(left,"list lenght: ", left.length, "random no: ",random_num, "the random from list left ",left_random )
+    console.log("the random from list left **",left_random)
     let hint_content = document.querySelector(".hint-content");
     hint_content.textContent = `Letter is ${left_random} is ${mainword[left_random - 1]}`
     console.log(`Letter is ${left_random} is ${mainword[left_random - 1]}`)
