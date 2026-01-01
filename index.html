@@ -145,7 +145,8 @@
 
     <div class="enter">
         <!-- <h3>Enter:</h3> -->
-        <input class="input" type="text" placeholder="Enter Here" maxlength="5" style="text-transform: uppercase;">
+        <input class="input" type="text" placeholder="Enter Here" maxlength="5" style="text-transform: uppercase;"
+            oninput="this.value = this.value.replace(/[^a-zA-Z]/g, '')">
         <!-- <button id="submitbtn" onclick=gobtn()>GO</button> -->
     </div>
 

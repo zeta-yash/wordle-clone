@@ -55,7 +55,7 @@ function hintMatter() {
     console.log(left,"list lenght: ", left.length, "random no: ",random_num, "the random from list left ",left_random )
     console.log("the random from list left **",left_random)
     let hint_content = document.querySelector(".hint-content");
-    hint_content.textContent = `Letter is ${left_random} is ${mainword[left_random - 1]}`
+    hint_content.textContent = `Letter ${left_random} is ${mainword[left_random - 1]}`
     console.log(`Letter is ${left_random} is ${mainword[left_random - 1]}`)
   }
 }
