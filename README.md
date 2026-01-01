@@ -1,29 +1,42 @@
-# wordle-clone
-Basic wordle game clone. 
+# 🎮 Wordle Clone
 
-A simple efficient WORDLE clone as a part of my weekly project.
+A basic **Wordle clone** I built as part of my weekly project.
 
-ABOUT THE GAME
+The goal was to make a **simple but efficient version** of the classic WORDLE game using plain web tech.
 
-- 5 Letter word have to be entered
-- GREEN : if the letter got placed right
-- YELLOW : if the letter got placed wrong
-- GREY : if letter doesn't exists in the word
-- User has only six chances
+---
 
-  STACK USED
-  HTML
-  CSS
-  JS
-  JSON
+## 🕹️ About the Game
 
+- Enter a **5-letter word**  
+- 🟩 **Green** → letter is in the right spot  
+- 🟨 **Yellow** → letter exists but in the wrong spot  
+- ⬜ **Grey** → letter isn’t in the word  
+- You only get **6 tries**, so choose wisely 👀  
 
-  What I learnt?
-  ================
-  Javascript DOM
-  Event Handling
-  Project Handling
-  JSON linking
-  Backend Handling
+---
 
-  It took me around 5.5 Hrs to built and make it functional from very scaratch.
+## 🛠️ Tech Stack
+
+- HTML  
+- CSS  
+- JavaScript  
+- JSON  
+
+---
+
+## 📚 What I Learned
+
+- DOM manipulation (a lot of it)  
+- Event handling  
+- Structuring and managing a project  
+- Working with JSON  
+- Handling basic backend logic  
+
+---
+
+## ⏱️ Time & Updates
+
+- Initial version took about **5.5 hours** to build from scratch  
+- Spent **another 10 days** later tweaking the frontend and adding extra features (plus their backend logic)  
+- **Hint section was the real culprit** 💀 — totally caught me for **3–4 days**, but now it’s finally working!
