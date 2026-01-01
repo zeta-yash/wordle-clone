@@ -12,8 +12,8 @@ async function initGame() {
     mainword = randomword.toUpperCase(); // Set global variable
 
     // Show the word in the demo element
-    const demo = document.querySelector(".demo");
-    demo.innerHTML = mainword;
+    // const demo = document.querySelector(".demo");
+    // demo.innerHTML = mainword;
 
   } catch (err) {
     console.error("Error fetching or processing the data:", err);
