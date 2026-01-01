@@ -11,11 +11,14 @@ ABOUT THE GAME
 - GREY : if letter doesn't exists in the word
 - User has only six chances
 
-  STACK USED
-  HTML
-  CSS
-  JS
-  JSON
+  <h3>STACK USED</h3>
+  <ul>
+  <li>HTML</li>
+  <li>CSS</li>
+  <li>JS</li>
+  <li>JSON</li>
+  </ul>
+
 
 
   What I learnt?
