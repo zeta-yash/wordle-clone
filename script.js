@@ -18,7 +18,7 @@ async function initGame() {
   } catch (err) {
     console.error("Error fetching or processing the data:", err);
   }
-  hintMatter()
+  
 }
 
 // Call the async function to initialize
@@ -30,18 +30,16 @@ let entered_values = []; //no of lines entered
 let total_elements = entered_values.length;
 //==============================================================
 let left_positions = [1, 2, 3, 4, 5];
-let left_positions_new = [1,2,3,4,5];
+let left_positions_new = [];
 function updateLeftPosition() {
-  left_positions_new = [];
   for (let i = 0; i < 5; i++) {
     
-    if (left_positions[i] === i + 1) {
+    if (left_positions[i] === i+1) {
       
       left_positions_new.push(i + 1);
     }
   }
 };
-let posit_guessed = 0;
 //=================================================================
 
 
@@ -52,16 +50,18 @@ let toggle = 0;
 // this loop gets the values from the elements
 
 
-let hint_content = document.querySelector(".hint-content");
-// if 
-let random_sample_leftPs = left_positions_new[Math.floor(Math.random() * left_positions_new.length)];
 function hintMatter() {
   
   ////HINT TEXT FORMATING//////
-
+  
   if (1<total_elements < 6) {
+    let hint_content = document.querySelector(".hint-content");
+    // if 
+    let random_sample_leftPs = left_positions_new[Math.floor(Math.random() * left_positions_new.length)];
     hint_content.innerHTML = `Letter ${random_sample_leftPs} is ${mainword[random_sample_leftPs - 1]} `;
+
     console.log(`Letter ${random_sample_leftPs} is ${mainword[random_sample_leftPs - 1]} `);
+    // for (let i=0;)
   }
   else if (total_elements === 6) {
     hint_content.innerHTML = "You Won...!!! &#127942";
@@ -113,7 +113,7 @@ function execute() { //this code runs for 1 line per execution
   for (let i = 0; i < 5; i++) {
     if (text[i] === mainword[i]) {
       let deleted = delete left_positions[i];
-      console.log(text[i], " is at right position, so the", deleted, " is deleted and the new left P list is ", left_positions, "leftUpdate: ", left_positions_new)
+      console.log(text[i], " is at right position, so the", mainword[i], " is deleted and the new left P list is ", left_positions, "leftUpdate: ", left_positions_new)
 
     }
   }
@@ -167,6 +167,7 @@ inputtxt.addEventListener("keydown", function (event) {
 
 function showhint() {
   updateLeftPosition()
+  hintMatter()
   if (total_elements == 0) {
     alert("Try atleast once, to avail hint.")
   }
