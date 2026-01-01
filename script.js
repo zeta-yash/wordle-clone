@@ -18,7 +18,7 @@ async function initGame() {
   } catch (err) {
     console.error("Error fetching or processing the data:", err);
   }
-  
+
 }
 
 // Call the async function to initialize
@@ -29,7 +29,8 @@ initGame();
 let entered_values = []; //no of lines entered
 let total_elements = entered_values.length;
 //==============================================================
-
+let greens = [];
+let left = [];
 //=================================================================
 
 
@@ -41,13 +42,21 @@ let toggle = 0;
 
 
 function hintMatter() {
-  
-  ////HINT TEXT FORMATING//////
-  let hint_content = document.querySelector(".hint-content");
-  
-  
-    
 
+  ////HINT TEXT FORMATING//////
+  if (total_elements != 0 && hintused==0) {
+    for (let i = 0; i < (5); i++) {
+      if (!greens.includes(i + 1)) {
+        left.push(i + 1);
+      };
+    };
+    console.log(left)
+    let left_random = left[Math.ceil(Math.random() * left.length)]
+    console.log(left_random)
+    let hint_content = document.querySelector(".hint-content");
+    hint_content.textContent = `Letter is ${left_random} is ${mainword[left_random - 1]}`
+    console.log(`Letter is ${left_random} is ${mainword[left_random - 1]}`)
+  }
 }
 
 
@@ -90,14 +99,17 @@ function execute() { //this code runs for 1 line per execution
     alert("Only 5 letter words are accepted.")
     return;
   };
-  for (let i = 0; i < 5; i++) {
-    if (text[i] === mainword[i]) {
-      let deleted = delete left_positions[i];
-      console.log(text[i], " is at right position, so the", mainword[i], " is deleted and the new left P list is ", left_positions, "leftUpdate: ", left_positions_new)
 
+  // mappng greens
+  for (let i = 0; i < 5; i++) {
+    if (text[i] === mainword[i] && !greens.includes(i + 1)) {
+      greens.push(i + 1);
     }
   }
-  
+
+  console.log(greens);
+
+
   console.log(text);
 
 
@@ -146,7 +158,7 @@ inputtxt.addEventListener("keydown", function (event) {
 
 
 function showhint() {
-  
+
   hintMatter()
   if (total_elements == 0) {
     alert("Try atleast once, to avail hint.")
