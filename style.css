@@ -10,7 +10,7 @@
 
 html {
     background-image: var(--bg-image);
-    background-size: cover;
+    background-size:100rem;
     background-repeat: none;
     background-position: center;
 }
