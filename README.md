@@ -1,10 +1,9 @@
 # 🎮 Wordle Clone
 
 <!-- <a href="wordle-clone-yash.netlify.app" style="text-style:none; font-family:consolas;">🔴Live - Play Now!</a> -->
-[![Play Now](https://img.shields.io/badge/Status-LIVE-red)](https://wordle-clone-yash.netlify.app)
 <p align="center">
   <a href="https://wordle-clone-yash.netlify.app">
-    <b>🔴 LIVE – Play Now!</b>
+    <b style="text-style=none;">🔴 LIVE – Play Now!</b>
   </a>
 </p>
 
